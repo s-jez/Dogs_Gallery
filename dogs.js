@@ -1,4 +1,4 @@
-import TOKEN from "./config";
+import TOKEN from "./config.js";
 
 export const readDogs = async (url) => {
   try {
