@@ -1,0 +1,85 @@
+.container > ul { /* override Bootstrap styles */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.gallery li {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  
+}
+.gallery li img {
+  width: 50%;
+  border: 2px solid rgba(77, 77, 77, 0.6);
+}
+.arrows {
+  position: relative;
+}
+.arrows .arrow-left, .arrow-right {
+  margin: 10px;
+}
+.container {
+  padding-top: 1.5em;
+  background-color: rgba(77, 77, 77, 0.1);
+}
+.container ul {
+  padding: 0.25em;
+  list-style: none;
+}
+.btn {
+  width: 100px;
+  overflow: hidden;
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #576ef0;
+  transition: all 1s;
+  z-index: -1;
+  transform: translateX(-150%);
+}
+.btn:hover {
+  color: #fff;
+}
+.welcome{
+  background: ghostwhite;
+  border-radius: 15px;
+  padding: 2em;
+  margin-bottom: 2em;
+}
+
+@media (max-width: 1200px) {
+  ul li img {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 1650px) {
+    ul.arrows .arrow-left, .arrow-right {
+      position: absolute;
+      top: -400px;
+    }
+    ul.arrows .arrow-left {
+      left: 250px;
+    }
+    ul.arrows .arrow-right {
+      right: 250px;
+    }  
+    .btn:hover::before {
+    transform: translateX(0);
+  }
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #576ef0;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(169, 169, 169);
+  border-radius: 10px;
+}
