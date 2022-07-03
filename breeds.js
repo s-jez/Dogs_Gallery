@@ -1,11 +1,10 @@
 import { readDogs } from "./fetch_dogs.js";
 
-const BTN_SHOW = document.querySelector(".btn-show");
 const DROPDOWN_MENU = document.querySelector(".dropdown-menu");
 const IMAGE_BREED = document.querySelector(".image-breed");
 
-let dogInfo = [],
-  dogImage = [];
+let dogInfo = [];
+let dogImage = [];
 let selectedBreedId;
 
 const randomArray = (length, max) =>
@@ -23,7 +22,7 @@ const ShowBreeds = () => {
       items.forEach((id) => {
         const btn = document.createElement("button");
         btn.classList.toggle("dropdown-item");
-        btn.classList.toggle(`${id}`);
+        btn.classList.add(id);
         if (dogInfo !== "undefined") {
           const dogName = document.createTextNode(dogInfo[id].name);
           btn.appendChild(dogName);
@@ -34,7 +33,18 @@ const ShowBreeds = () => {
           if (selectedBreedId !== undefined) {
             readDogs(apiURL).then((data) => {
               dogImage = data;
+              console.log(dogImage[selectedBreedId]);
               IMAGE_BREED.src = data[selectedBreedId].image.url;
+              IMAGE_BREED.width = data[selectedBreedId].image.width;
+              IMAGE_BREED.height = data[selectedBreedId].image.height;
+              CreateBreadDesc(
+                data[selectedBreedId].name,
+                data[selectedBreedId].life_span,
+                data[selectedBreedId].temperament,
+                data[selectedBreedId].weight.metric,
+                data[selectedBreedId].bred_for,
+                data[selectedBreedId].bred_group
+              );
             });
           }
         });
@@ -42,7 +52,16 @@ const ShowBreeds = () => {
     })
     .catch((err) => console.log(err));
 };
-
-BTN_SHOW.addEventListener("click", () => {
+const CreateBreadDesc = (
+  name,
+  life_span,
+  temperament,
+  weight,
+  bred_for,
+  breed_group
+) => {
+  // Create Description list to describe Breed
+};
+window.onload = () => {
   ShowBreeds();
-});
+};
