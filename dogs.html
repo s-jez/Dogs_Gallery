@@ -42,8 +42,31 @@
     </nav>
     <br />
     <div class="container text-center">
-      <button class="btn btn-primary btn__show">Show Breeds of Dogs</button>
-      <ul class="dogs__list"></ul>
+      <h3 for="breed-choose">Dogs Images via Breeds</h3>
+      <br />
+      <div class="dropdown show">
+        <button
+          class="btn btn-secondary dropdown-toggle btn-show"
+          href="#"
+          role="button"
+          id="dropdownMenuLink"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Choose your Dog Breed
+        </button>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <!-- Breeds dogs from API here -->
+        </div>
+      </div>
+      <br />
+    </div>
+    <div class="image-container text-center">
+      <br />
+      <img class="image-breed" width="50%" />
+      <br />
     </div>
     <!-- JavaScript Bundle with Popper -->
     <script
