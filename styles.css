@@ -27,11 +27,11 @@
   padding: 0.25em;
   list-style: none;
 }
-.btn {
+.btn-main {
   width: 100px;
   overflow: hidden;
 }
-.btn::before {
+.btn-main::before {
   content: "";
   position: absolute;
   top: 0;
@@ -43,7 +43,7 @@
   z-index: -1;
   transform: translateX(-150%);
 }
-.btn:hover {
+.btn-main:hover {
   color: #fff;
 }
 .welcome{
@@ -64,10 +64,10 @@
       top: -400px;
     }
     ul.arrows .arrow-left {
-      left: 250px;
+      left: 150px;
     }
     ul.arrows .arrow-right {
-      right: 250px;
+      right: 150px;
     }  
     .btn:hover::before {
     transform: translateX(0);
