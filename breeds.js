@@ -3,10 +3,7 @@ import { readDogs } from "./fetch_dogs.js";
 
 const DROPDOWN_MENU = document.querySelector(".dropdown-menu");
 const IMAGE_BREED = document.querySelector(".image-breed");
-
-let dogInfo = [];
-let dogImage = [];
-let selectedBreedId;
+const DOG_BREEDS = document.querySelector(".dogs-breeds");
 
 const randomArray = (length, max) =>
   [...new Array(length)].map(() => Math.round(Math.random() * max));
@@ -16,24 +13,19 @@ const ShowBreeds = () => {
   let items = randomArray(5, 100);
   readDogs(urlBreeds)
     .then((data) => {
-      dogInfo = data;
-    })
-    .then(() => {
-      items.forEach((id) => {
+      items.forEach((selectedBreedId) => {
         const btn = document.createElement("button");
         btn.classList.toggle("dropdown-item");
-        btn.classList.add(id);
-        if (dogInfo !== "undefined") {
-          const dogName = document.createTextNode(dogInfo[id].name);
+        btn.classList.add(selectedBreedId);
+        if (data !== undefined) {
+          const dogName = document.createTextNode(data[selectedBreedId].name);
           btn.appendChild(dogName);
           DROPDOWN_MENU.appendChild(btn);
         }
         btn.addEventListener("click", () => {
-          selectedBreedId = id;
           if (selectedBreedId !== undefined) {
             readDogs(urlBreeds).then((data) => {
-              dogImage = data;
-              console.log(dogImage[selectedBreedId]);
+              console.log(data[selectedBreedId]);
               IMAGE_BREED.src = data[selectedBreedId].image.url;
               CreateBreadDesc(data[selectedBreedId]);
             });
@@ -41,7 +33,7 @@ const ShowBreeds = () => {
         });
       });
     })
-    .catch((err) => err);
+    .catch((err) => console.log(err));
 };
 const CreateBreadDesc = ({
   name,
@@ -51,15 +43,13 @@ const CreateBreadDesc = ({
   bred_for,
 }) => {
   const descEl = document.createElement("div");
-  document.getElementById("dogs-list").innerHTML = "";
-  descEl.classList.add("text-center");
-  descEl.innerHTML += `<li>Breed: <b>${name}</b></li>`;
-  descEl.innerHTML += `<li>Lifespan: <b>${life_span}</b></li>`;
-  descEl.innerHTML += `<li>Temperament: <b>${temperament}</b></li>`;
-  descEl.innerHTML += `<li>Weight: <b>${metric} kg</b></li>`;
-  descEl.innerHTML += `<li>Bred for: <b>${bred_for}</b></li>`;
-  document.getElementById("dogs-list").appendChild(descEl);
+  DOG_BREEDS.innerHTML = "";
+  descEl.classList.add("container", "text-center");
+  descEl.innerHTML += `<p>Breed: <b>${name}</b></p>`;
+  descEl.innerHTML += `<p>Lifespan: <b>${life_span}</b></p>`;
+  descEl.innerHTML += `<p>Temperament: <b>${temperament}</b></p>`;
+  descEl.innerHTML += `<p>Weight: <b>${metric} kg</b></p>`;
+  descEl.innerHTML += `<p>Bred for: <b>${bred_for}</b></p>`;
+  DOG_BREEDS.appendChild(descEl);
 };
-window.onload = () => {
-  ShowBreeds();
-};
+window.addEventListener("load", ShowBreeds);

@@ -4,13 +4,14 @@ const btnGIF = document.querySelector(".btn-gif");
 const dogGIF = document.querySelector(".dog-gif");
 
 const fetchGif = () => {
-  document.querySelector(".dog-gif").innerHTML = "";
+  dogGIF.innerHTML = "";
   readDogs(urlGIF)
     .then((data) => {
       data.map(() => {
         const img = document.createElement("img");
         img.src = data[0].url;
-        dogGIF.appendChild(img);
+        img.style.width = "100%";
+        dogGIF.replaceChildren(img);
       });
     })
     .catch((err) => {

@@ -86,3 +86,18 @@ ul {
   background: rgb(169, 169, 169);
   border-radius: 10px;
 }
+.dog-gif {
+  margin: auto;
+  max-width: 600px;
+  max-height: 600px;
+  background-color: rgba(77, 77, 77, 0.3);
+  padding: 20px;
+}
+.image-container {
+  margin: auto;
+  padding: 10px;
+}
+.image-breed{
+  width: 100%;
+  max-width: 600px;
+}
