@@ -1,21 +1,21 @@
+import { urlGIF } from "./api_url.js";
 import { readDogs } from "./fetch_dogs.js";
 const btnGIF = document.querySelector(".btn-gif");
 const dogGIF = document.querySelector(".dog-gif");
 
-const urlAPI = "https://api.thedogapi.com/v1/images/search?mime_types=gif";
-
-btnGIF.addEventListener("click", () => {
+const fetchGif = () => {
   document.querySelector(".dog-gif").innerHTML = "";
-  readDogs(urlAPI)
+  readDogs(urlGIF)
     .then((data) => {
-      let gifElements = data;
-      gifElements.map(() => {
-        let img = document.createElement("img");
-        img.src = gifElements[0].url;
+      data.map(() => {
+        const img = document.createElement("img");
+        img.src = data[0].url;
         dogGIF.appendChild(img);
       });
     })
     .catch((err) => {
-      console.log(err);
+      return err;
     });
-});
+};
+document.addEventListener("DOMContentLoaded", fetchGif);
+btnGIF.addEventListener("click", fetchGif);

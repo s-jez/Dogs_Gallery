@@ -42,7 +42,7 @@ ul {
   width: 100%;
   height: 100%;
   background-color: #576ef0;
-  transition: all 1s;
+  transition: all 0.35s;
   z-index: -1;
   transform: translateX(-150%);
 }

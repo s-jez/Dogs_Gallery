@@ -15,6 +15,6 @@ export const readDogs = async (url) => {
       throw new Error("Fetch failed");
     }
   } catch (error) {
-    console.error(error.message);
+    return error.message;
   }
 };
