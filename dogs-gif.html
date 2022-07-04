@@ -45,42 +45,10 @@
     </nav>
     <br />
     <div class="container text-center">
-      <h3 for="breed-choose">Dogs Images via Breeds</h3>
-      <br />
-      <div class="dropdown show">
-        <button
-          class="btn btn-secondary dropdown-toggle btn-show"
-          href="#"
-          role="button"
-          id="dropdownMenuLink"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          Choose your Dog Breed
-        </button>
-        <button
-          class="btn btn-primary"
-          href="#"
-          role="button"
-          onclick="window.location.reload()"
-        >
-          Page Reload
-        </button>
-
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <!-- Breeds dogs from API here -->
-        </div>
-      </div>
-      <br />
-    </div>
-    <div class="image-container text-center">
-      <br />
-      <img class="image-breed" width="40%" />
-      <br />
+      <button class="btn btn-primary btn-gif">Show Dog GIF</button>
     </div>
     <br />
-    <ul id="dogs-list"></ul>
+    <div class="dog-gif text-center"></div>
     <!-- JavaScript Bundle with Popper -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
@@ -103,6 +71,6 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <script src="./breeds.js" type="module"></script>
+    <script src="./gif.js" type="module"></script>
   </body>
 </html>
