@@ -35,15 +35,12 @@ const ShowBreeds = () => {
               dogImage = data;
               console.log(dogImage[selectedBreedId]);
               IMAGE_BREED.src = data[selectedBreedId].image.url;
-              IMAGE_BREED.width = data[selectedBreedId].image.width;
-              IMAGE_BREED.height = data[selectedBreedId].image.height;
               CreateBreadDesc(
                 data[selectedBreedId].name,
                 data[selectedBreedId].life_span,
                 data[selectedBreedId].temperament,
                 data[selectedBreedId].weight.metric,
-                data[selectedBreedId].bred_for,
-                data[selectedBreedId].bred_group
+                data[selectedBreedId].bred_for
               );
             });
           }
@@ -52,15 +49,17 @@ const ShowBreeds = () => {
     })
     .catch((err) => console.log(err));
 };
-const CreateBreadDesc = (
-  name,
-  life_span,
-  temperament,
-  weight,
-  bred_for,
-  breed_group
-) => {
-  // Create Description list to describe Breed
+const CreateBreadDesc = (name, life_span, temperament, weight, bred_for) => {
+  let descEl = document.createElement("div");
+  document.getElementById("dogs-list").innerHTML = "";
+  descEl.classList.add("text-center");
+  descEl.innerHTML += `<li>Breed: <b>${name}</b></li>`;
+  descEl.innerHTML += `<li>Lifespan: <b>${life_span}</b></li>`;
+  descEl.innerHTML += `<li>Temperament: <b>${temperament}</b></li>`;
+  descEl.innerHTML += `<li>Weight: <b>${weight} kg</b></li>`;
+  descEl.innerHTML += `<li>Bred for: <b>${bred_for}</b></li>`;
+  descEl.innerHTML += "<br />";
+  document.getElementById("dogs-list").appendChild(descEl);
 };
 window.onload = () => {
   ShowBreeds();

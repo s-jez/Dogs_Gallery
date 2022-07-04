@@ -3,6 +3,9 @@
   margin: 0;
   padding: 0;
 }
+ul {
+  list-style: none;
+}
 .gallery li {
   display: flex;
   justify-content: center;
@@ -20,7 +23,7 @@
   margin: 10px;
 }
 .container {
-  padding-top: 1.5em;
+  padding: 1.5em;
   background-color: rgba(77, 77, 77, 0.1);
 }
 .container ul {
