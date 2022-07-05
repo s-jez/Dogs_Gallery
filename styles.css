@@ -13,8 +13,11 @@ ul {
   
 }
 .gallery li img {
+  height: 600px;
   width: 50%;
   border: 2px solid rgba(77, 77, 77, 0.6);
+  background-color: #fff;
+  object-fit: contain;
 }
 .arrows {
   position: relative;
@@ -73,8 +76,8 @@ nav, img {
 }
 .dog-gif {
   margin: auto;
-  max-width: 600px;
-  max-height: 600px;
+  width: 600px;
+  height: 300px;
   background-color: rgba(77, 77, 77, 0.3);
   box-shadow: 0px 0px 12px -2px rgba(0,0,0,0.5);
   padding: 20px;
@@ -85,5 +88,7 @@ nav, img {
 }
 .image-breed{
   width: 100%;
+  height: 600px;
   max-width: 600px;
+  object-fit: contain;
 }

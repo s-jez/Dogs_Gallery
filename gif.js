@@ -11,6 +11,7 @@ const fetchGif = () => {
         const img = document.createElement("img");
         img.src = data[0].url;
         img.style.width = "100%";
+        img.style.height = "260px";
         dogGIF.replaceChildren(img);
       });
     })
